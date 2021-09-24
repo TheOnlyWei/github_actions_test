@@ -2,10 +2,14 @@ name: GitHub Actions Demo
 on: 
   workflow_dispatch:
     inputs:
-      test_input:
+      test_input1:
         description: 'Enter anything.'
         required: true
-        default: 'test'
+        default: 'test1'
+      testInput2:
+        description: 'Enter anything.'
+        required: true
+        default: 'test2'
 
 jobs:
   Explore-GitHub-Actions:
