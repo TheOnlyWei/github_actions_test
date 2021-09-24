@@ -29,4 +29,7 @@ jobs:
       - name: Run PowerShell script.
         shell: pwsh
         run: |
+          Write-Host "WITHIN YAML"
+          Write-Host "test_input1: @@@$($env:INPUT_TEST_INPUT1)@@@"
+          Write-Host "testInput2: @@@$($env:INPUT_TESTINPUT2)@@@"
           ${{ github.workspace }}\test.ps1
