@@ -22,5 +22,7 @@ jobs:
         run: |
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
-      - shell: pwsh
-        run: ${{ github.workspace }}\test.ps1
+      - name: Run PowerShell script.
+        shell: pwsh
+        run: |
+          ${{ github.workspace }}\test.ps1

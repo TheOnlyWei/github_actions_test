@@ -1,1 +1,1 @@
-Write-Host "$($env:INPUT_TEST_INPUT)"
+Write-Host "@@@$($env:INPUT_TEST_INPUT)@@@"
