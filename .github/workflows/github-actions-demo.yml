@@ -16,7 +16,7 @@ on:
 
 jobs:
   Explore-GitHub-Actions:
-    runs-on: ubuntu-latest
+    runs-on: windows-2019
     steps:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
@@ -49,3 +49,9 @@ jobs:
           Write-Host "test_input1: @@@$($env:INPUT_TEST_INPUT1)@@@"
           Write-Host "testInput2: @@@$($env:INPUT_TESTINPUT2)@@@"
           ${{ github.workspace }}\test.ps1
+      - name: Git version
+        shell: pwsh
+        run: |
+          Write-Host "Git version:"
+          git --version
+          Write-Host "Git version above."
