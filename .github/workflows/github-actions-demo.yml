@@ -36,9 +36,10 @@ jobs:
             Write-Host "base_ref: ${{ github.base_ref }}"
           }
       - name: List files in the repository before checkout.
+        shell: pwsh
         run: |
-          echo "Current directory before checkout"
-          ls
+          Write-Host "Current directory before checkout"
+          Get-Location | Out-Host
       - name: Check out repository code
         uses: actions/checkout@v2
       - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
