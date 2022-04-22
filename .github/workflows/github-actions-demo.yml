@@ -35,6 +35,10 @@ jobs:
           {
             Write-Host "base_ref: ${{ github.base_ref }}"
           }
+      - name: List files in the repository before checkout.
+        run: |
+          echo "github.workspace before checkout"
+          ls ${{ github.workspace }}
       - name: Check out repository code
         uses: actions/checkout@v2
       - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
