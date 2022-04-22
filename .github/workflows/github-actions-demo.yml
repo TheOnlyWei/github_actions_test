@@ -37,8 +37,8 @@ jobs:
           }
       - name: List files in the repository before checkout.
         run: |
-          echo "github.workspace before checkout"
-          ls ${{ github.workspace }}
+          echo "Current directory before checkout"
+          ls
       - name: Check out repository code
         uses: actions/checkout@v2
       - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
