@@ -18,7 +18,6 @@ jobs:
   Explore-GitHub-Actions:
     runs-on: windows-2019
     steps:
-      - run: echo "Github events name is ${{ github.event_name }}."
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
       - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
@@ -68,3 +67,6 @@ jobs:
           Write-Host "Git version:"
           git --version
           Write-Host "Git version above."
+      - name: Write error test.
+        shell: pwsh
+        run: Write-Error "ERROR!!!" -ErrorAction Stop
