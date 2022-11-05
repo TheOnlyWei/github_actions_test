@@ -21,11 +21,11 @@ jobs:
 
   Test_Second_Job:
     runs-on: windows-2019
-    needs: Explore-GitHub-Actions
+    needs: Test_First_Job
     strategy:
       fail-fast: false
       matrix:
-        JSON_ARRAY: ${{ fromJson(needs.Explore-GitHub-Actions.outputs.JSON_ARRAY) }}
+        JSON_ARRAY: ${{ fromJson(needs.Test_First_Job.outputs.JSON_ARRAY) }}
     steps:
       - name: Print JSON_ARRAY
         shell: pwsh
