@@ -67,6 +67,26 @@ jobs:
           Write-Host "Git version:"
           git --version
           Write-Host "Git version above."
-      - name: Write error test.
+
+      - name: Convert input to JSON for matrix.
+        id: matrix_json_step
         shell: pwsh
-        run: Write-Error "ERROR!!!" -ErrorAction Stop
+        run: |
+          $jsonArrayString = '["test1:test2:test3","test4:test5:test6"]'
+          echo "JSON_ARRAY=${jsonArrayString}" >> $GITHUB_OUTPUT
+
+    outputs:
+      JSON_ARRAY: ${{ steps.matrix_json_step.outputs.JSON_ARRAY }}
+
+  Test_Second_Job:
+    runs-on: windows-2019
+    needs: Explore-GitHub-Actions
+    strategy:
+      fail-fast: false
+      matrix:
+        JSON_ARRAY: ${{ fromJson(needs.Explore-GitHub-Actions.outputs.JSON_ARRAY) }}
+    steps:
+      - name: Print JSON_ARRAY
+        shell: pwsh
+        run: |
+          Write-Host "JSON_ARRAY VALUE IN SECOND JOB: ${{ matrix.JSON_ARRAY }}"
