@@ -14,7 +14,7 @@ jobs:
         shell: pwsh
         run: |
           $jsonArrayString = "[`"test1:test2:test3`",`"test4:test5:test6`"]"
-          echo "JSON_ARRAY=${jsonArrayString}" >> $GITHUB_OUTPUT
+          echo "JSON_ARRAY=${jsonArrayString}" >> $Env:GITHUB_OUTPUT
 
     outputs:
       JSON_ARRAY: ${{ steps.matrix_json_step.outputs.JSON_ARRAY }}
